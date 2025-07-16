@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #3f51b5, #5a55ae);
+    }
+
+    .login-box, .form-box {
+      width: 350px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="password"], input[type="file"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3f51b5;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success-message {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Box -->
+  <div class="login-box" id="loginBox">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Form Box -->
+  <div class="form-box hidden" id="formBox">
+    <h2>Applicant Details</h2>
+    <label>Applicant Name:</label>
+    <input type="text" id="applicantName" required />
+
+    <label>Aadhaar Number:</label>
+    <input type="number" id="aadhaar" required />
+
+    <label>Father / Husband Name:</label>
+    <input type="text" id="fatherName" required />
+
+    <label>Mobile Number:</label>
+    <input type="number" id="mobile" required />
+
+    <label>Photo:</label>
+    <input type="file" id="photo" accept="image/*" required />
+
+    <button onclick="submitForm()">Submit</button>
+  </div>
+
+  <!-- Success Message -->
+  <div class="form-box hidden" id="successBox">
+    <h2 class="success-message">Submitted Successfully ✅</h2>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "System11" && password === "121088") {
+        document.getElementById('loginBox').classList.add('hidden');
+        document.getElementById('formBox').classList.remove('hidden');
+      } else {
+        alert("Invalid Username or Password");
+      }
+    }
+
+    function submitForm() {
+      // Here you can add form validation if needed
+      document.getElementById('formBox').classList.add('hidden');
+      document.getElementById('successBox').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
